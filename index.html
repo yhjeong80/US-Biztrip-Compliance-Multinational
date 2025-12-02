@@ -24,9 +24,7 @@
       --border-radius: 14px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -62,9 +60,7 @@
       font-size: 0.9rem;
     }
 
-    .list {
-      margin-top: 24px;
-    }
+    .list { margin-top: 24px; }
 
     .card {
       background: var(--card-bg);
@@ -103,9 +99,7 @@
       line-height: 1.5;
     }
 
-    .btn-row {
-      margin-top: 4px;
-    }
+    .btn-row { margin-top: 4px; }
 
     .btn {
       display: inline-flex;
@@ -121,24 +115,14 @@
       font-weight: 600;
     }
 
-    .btn span {
-      font-size: 0.9em;
-    }
-
-    .btn:hover {
-      opacity: 0.95;
-    }
-
-    .btn:active {
-      transform: translateY(1px);
-    }
-
+    .btn:hover { opacity: 0.95; }
+    .btn:active { transform: translateY(1px); }
     .btn:focus-visible {
       outline: 2px solid #1d4ed8;
       outline-offset: 3px;
     }
 
-    /* 🔹 언어 선택 토글 스타일 추가 */
+    /* 🔹 언어 선택 버튼 */
     .lang-toggle {
       display: flex;
       justify-content: center;
@@ -171,15 +155,9 @@
     }
 
     @media (min-width: 640px) {
-      .container {
-        padding-top: 40px;
-      }
-      header h1 {
-        font-size: 1.9rem;
-      }
-      .card {
-        padding: 20px 22px 18px;
-      }
+      .container { padding-top: 40px; }
+      header h1 { font-size: 1.9rem; }
+      .card { padding: 20px 22px 18px; }
     }
   </style>
 </head>
@@ -192,7 +170,7 @@
         미국 출장 전 확인해야 할 가이드라인과 체크리스트를 한 곳에서 확인하세요.
       </p>
 
-      <!-- 🔹 언어 선택 버튼 영역 -->
+      <!-- 🔹 언어 선택 버튼 -->
       <div class="lang-toggle">
         <button class="lang-btn active" data-lang="ko">한국어</button>
         <button class="lang-btn" data-lang="en">English</button>
@@ -240,7 +218,7 @@
         </div>
       </div>
 
-      <!-- PDF #3: Summary (ESTA vs B-1) -->
+      <!-- PDF #3 -->
       <div class="card">
         <div class="card-header">
           <span class="badge">PDF</span>
@@ -249,8 +227,7 @@
           </div>
         </div>
         <div class="card-desc" id="card3-desc">
-          미국 출장 시 ESTA 와 B-1 의 선택, ESTA 와 B-1 비교, 출장자 유의사항 등을 정리한 요약본 입니다.
-          비자 선택과 출장 전 점검은 물론, 출장 중에도 필요할 때 언제든지 빠르고 편리하게 확인하실 수 있습니다.
+          미국 출장 시 ESTA 와 B-1 의 선택, 양자의 비교, 출장자 유의사항 등을 정리한 요약본입니다.
         </div>
         <div class="btn-row">
           <a class="btn" id="card3-link"
@@ -265,7 +242,7 @@
   </div>
 
   <script>
-    // 언어별 텍스트 + PDF 파일 경로 설정
+    // 다국어 텍스트
     const langConfig = {
       ko: {
         headerTitle: "US Biztrip Compliance",
@@ -285,34 +262,41 @@
           },
           {
             title: "③ 미국 출장 핵심 Summary (ESTA vs B-1)",
-            desc: "미국 출장 시 ESTA 와 B-1 의 선택, 양자의 비교, 출장자 유의사항 등을 정리한 요약본입니다. 출장 전·중에 필요할 때마다 간편하게 확인할 수 있습니다.",
+            desc: "미국 출장 시 ESTA 와 B-1 의 선택, 양자의 비교, 출장자 유의사항 등을 정리한 요약본입니다.",
             href: "pdfjs/viewer.html?file=../US-Biztrip-Summary-KO.pdf#zoom=page-width"
           }
         ]
       },
+
+      /* 🔵 이미지와 동일하게 수정된 영어 버전 */
       en: {
         headerTitle: "US Biztrip Compliance",
-        headerSubtitle: "Access guidelines and checklists you must review before your U.S. business trip – all in one place.",
+        headerSubtitle:
+          "Access all the guidelines and checklists you need to review before your U.S. business trip in one place.",
         footer: "US Biztrip Compliance – PDF Web App",
-        btnText: "Open document",
+        btnText: "View Document",
         cards: [
           {
-            title: "① U.S. Business Trip Compliance Guideline",
-            desc: "A comprehensive guideline covering visa categories for U.S. business trips, pre-departure preparations, inspection points at entry, precautions during your stay, and basic response tips in case of detention, arrest, or investigation.",
+            title: "① Compliance Guideline for U.S. Business Travel",
+            desc:
+              "This guideline provides a comprehensive overview of U.S. business-travel visa categories, pre-departure preparation requirements, key considerations during immigration inspection and the stay, as well as response measures in the event of detention, custody, or investigation.",
             href: "pdfjs/viewer.html?file=../US-Biztrip-Guideline-EN.pdf#zoom=page-width"
           },
           {
-            title: "② U.S. Business Trip Checklist",
-            desc: "A practical checklist including a visa selection matrix and visa-type specific checklists designed for U.S. business trips.",
+            title: "② U.S. Business Travel Checklist",
+            desc:
+              "This document provides an at-a-glance view of the visa selection matrix and visa-specific checklists for U.S. business travel.",
             href: "pdfjs/viewer.html?file=../US-Biztrip-Checklist-EN.pdf#zoom=page-width"
           },
           {
-            title: "③ U.S. Business Trip Summary (ESTA vs. B-1)",
-            desc: "A concise summary comparing ESTA and B-1, including how to choose the appropriate option and key points to keep in mind before and during your trip.",
+            title: "③ U.S. Business Travel Executive Summary (ESTA vs B-1)",
+            desc:
+              "This summary provides a comparison of ESTA and B-1, guidance on selecting the appropriate option, and key notes for business travelers. It can be quickly referenced before and during your trip.",
             href: "pdfjs/viewer.html?file=../US-Biztrip-Summary-EN.pdf#zoom=page-width"
           }
         ]
       },
+
       zh: {
         headerTitle: "美国出差合规指引",
         headerSubtitle: "在一个页面集中查看美国出差前需要了解的指引与检查清单。",
@@ -338,6 +322,7 @@
       }
     };
 
+    /* 언어 적용 함수 */
     function applyLanguage(lang) {
       const cfg = langConfig[lang];
       if (!cfg) return;
@@ -365,24 +350,20 @@
       document.getElementById("card3-link").href        = cfg.cards[2].href;
       document.getElementById("card3-btn-text").textContent = cfg.btnText;
 
-      // 언어 버튼 active 처리
+      // 버튼 활성화 표시
       document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.lang === lang);
       });
 
-      // html lang 속성도 같이 바꿔주면 좋음
-      document.documentElement.lang = (lang === "ko" ? "ko" : (lang === "zh" ? "zh" : "en"));
+      document.documentElement.lang = lang;
     }
 
-    // 언어 버튼 클릭 이벤트
+    // 버튼 이벤트
     document.querySelectorAll(".lang-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const lang = btn.dataset.lang;
-        applyLanguage(lang);
-      });
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
     });
 
-    // 기본 언어 적용 (한국어)
+    // 기본 한국어
     applyLanguage("ko");
 
     // PWA service worker
