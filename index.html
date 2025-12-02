@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <!-- 🔥 Google Analytics 4 (GA4) Tracking Code -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSLLZEP6QN"></script>
+  <!-- 🔥 Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFBQDD2KJT"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-YSLLZEP6QN');
+    gtag('config', 'G-WFBQDD2KJT');
   </script>
-  <!-- 🔥 GA4 코드 끝 -->
+  <!-- 🔥 GA4 끝 -->
 
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#ffffff">
@@ -133,7 +133,6 @@
       outline-offset: 3px;
     }
 
-    /* 🔹 언어 선택 버튼 */
     .lang-toggle {
       display: flex;
       justify-content: center;
@@ -181,7 +180,6 @@
         미국 출장 전 확인해야 할 가이드라인과 체크리스트를 한 곳에서 확인하세요.
       </p>
 
-      <!-- 🔹 언어 선택 버튼 -->
       <div class="lang-toggle">
         <button class="lang-btn active" data-lang="ko">한국어</button>
         <button class="lang-btn" data-lang="en">English</button>
@@ -190,7 +188,7 @@
     </header>
 
     <div class="list">
-      <!-- PDF #1 -->
+      <!-- PDF 1 -->
       <div class="card">
         <div class="card-header">
           <span class="badge">PDF</span>
@@ -210,7 +208,7 @@
         </div>
       </div>
 
-      <!-- PDF #2 -->
+      <!-- PDF 2 -->
       <div class="card">
         <div class="card-header">
           <span class="badge">PDF</span>
@@ -229,7 +227,7 @@
         </div>
       </div>
 
-      <!-- PDF #3 -->
+      <!-- PDF 3 -->
       <div class="card">
         <div class="card-header">
           <span class="badge">PDF</span>
@@ -253,7 +251,6 @@
   </div>
 
   <script>
-    // 다국어 텍스트
     const langConfig = {
       ko: {
         headerTitle: "US Biztrip Compliance",
@@ -301,7 +298,7 @@
           {
             title: "③ U.S. Business Travel Executive Summary (ESTA vs B-1)",
             desc:
-              "This summary provides a comparison of ESTA and B-1, guidance on selecting the appropriate option, and key notes for business travelers. It can be quickly referenced before and during your trip.",
+              "This summary provides a comparison of ESTA and B-1, guidance on selecting the appropriate option, and key notes for business travelers.",
             href: "pdfjs/viewer.html?file=../US-Biztrip-Summary-EN.pdf#zoom=page-width"
           }
         ]
@@ -314,7 +311,7 @@
         btnText: "打开文档",
         cards: [
           {
-            title: "① 美国出差合규指引",
+            title: "① 美国出差合规指引",
             desc: "综合整理了美国出差所需的各类签证说明、出发前准备事项、入境检查及停留期间的注意事项，以及在被扣留、拘留或调查等情况发生时的应对要点。",
             href: "pdfjs/viewer.html?file=../US-Biztrip-Guideline-ZH.pdf#zoom=page-width"
           },
@@ -324,43 +321,37 @@
             href: "pdfjs/viewer.html?file=../US-Biztrip-Checklist-ZH.pdf#zoom=page-width"
           },
           {
-            title: "③ 美国出差要点总结（ESTA vs B-1）",
-            desc: "整理了美国出差时 ESTA 与 B-1 的选择标准、两者比较以及出差人员需要注意的事项，便于在出발 전和出差期间随时快速查看。",
+            title: "③ 美国出差要점总结（ESTA vs B-1）",
+            desc: "整理了美国出差时 ESTA 与 B-1 的选择标准、两者比较以及出差人员需要注意的事项。",
             href: "pdfjs/viewer.html?file=../US-Biztrip-Summary-ZH.pdf#zoom=page-width"
           }
         ]
       }
     };
 
-    /* 언어 적용 함수 */
     function applyLanguage(lang) {
       const cfg = langConfig[lang];
       if (!cfg) return;
 
-      // 헤더/푸터
       document.getElementById("header-title").textContent = cfg.headerTitle;
       document.getElementById("header-subtitle").textContent = cfg.headerSubtitle;
       document.getElementById("footer-text").textContent = cfg.footer;
 
-      // 카드 1
       document.getElementById("card1-title").textContent = cfg.cards[0].title;
       document.getElementById("card1-desc").textContent  = cfg.cards[0].desc;
       document.getElementById("card1-link").href        = cfg.cards[0].href;
       document.getElementById("card1-btn-text").textContent = cfg.btnText;
 
-      // 카드 2
       document.getElementById("card2-title").textContent = cfg.cards[1].title;
       document.getElementById("card2-desc").textContent  = cfg.cards[1].desc;
       document.getElementById("card2-link").href        = cfg.cards[1].href;
       document.getElementById("card2-btn-text").textContent = cfg.btnText;
 
-      // 카드 3
       document.getElementById("card3-title").textContent = cfg.cards[2].title;
       document.getElementById("card3-desc").textContent  = cfg.cards[2].desc;
       document.getElementById("card3-link").href        = cfg.cards[2].href;
       document.getElementById("card3-btn-text").textContent = cfg.btnText;
 
-      // 버튼 활성화 표시
       document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.lang === lang);
       });
@@ -368,7 +359,7 @@
       document.documentElement.lang = lang;
     }
 
-    // 버튼 이벤트
+    // 언어 버튼
     document.querySelectorAll(".lang-btn").forEach(btn => {
       btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
     });
