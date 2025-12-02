@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="미국 출장을 위한 비자 안내, 체크리스트 및 컴플라이언스 가이드라인을 PDF로 제공합니다.">
+  <title>US Biztrip Compliance – PDF Viewer</title>
+
+  <!-- iOS icons & standalone -->
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="US Biztrip Compliance">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-soft: #e0ebff;
+      --text-main: #111827;
+      --text-sub: #6b7280;
+      --bg: #f3f4f6;
+      --card-bg: #ffffff;
+      --border-radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 16px 40px;
+    }
+
+    header {
+      text-align: center;
+      padding: 24px 16px 18px;
+      margin-bottom: 16px;
+      border-radius: 0 0 24px 24px;
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+    }
+
+    header h1 {
+      font-size: 1.7rem;
+      margin: 0 0 6px;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--text-sub);
+      font-size: 0.9rem;
+    }
+
+    .list {
+      margin-top: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 18px 18px 16px;
+      margin-bottom: 14px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge {
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .card-desc {
+      font-size: 0.87rem;
+      color: var(--text-sub);
+      line-height: 1.5;
+    }
+
+    .btn-row {
+      margin-top: 4px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 16px;
+      background: var(--primary);
+      color: white;
+      border-radius: 999px;
+      font-size: 0.87rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .btn span {
+      font-size: 0.9em;
+    }
+
+    .btn:hover {
+      opacity: 0.95;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid #1d4ed8;
+      outline-offset: 3px;
+    }
+
+    /* 🔹 언어 선택 토글 스타일 추가 */
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .lang-btn {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      font-size: 0.8rem;
+      cursor: pointer;
+      color: #374151;
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 24px;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        padding-top: 40px;
+      }
+      header h1 {
+        font-size: 1.9rem;
+      }
+      .card {
+        padding: 20px 22px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1 id="header-title">US Biztrip Compliance</h1>
+      <p id="header-subtitle">
+        미국 출장 전 확인해야 할 가이드라인과 체크리스트를 한 곳에서 확인하세요.
+      </p>
+
+      <!-- 🔹 언어 선택 버튼 영역 -->
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ko">한국어</button>
+        <button class="lang-btn" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+      </div>
+    </header>
+
+    <div class="list">
+      <!-- PDF #1 -->
+      <div class="card">
+        <div class="card-header">
+          <span class="badge">PDF</span>
+          <div class="card-title" id="card1-title">
+            ① 미국 출장 Compliance Guideline
+          </div>
+        </div>
+        <div class="card-desc" id="card1-desc">
+          미국 출장을 위한 비자 종류별 안내, 출국 전 준비 사항, 입국심사 및 체류 중 유의사항,
+          체포·구금·조사 상황 발생 시 대응 요령 등을 종합적으로 정리한 가이드라인입니다.
+        </div>
+        <div class="btn-row">
+          <a class="btn" id="card1-link"
+             href="pdfjs/viewer.html?file=../US-Biztrip-Guideline-KO.pdf#zoom=page-width">
+            <span id="card1-btn-text">문서 열기</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- PDF #2 -->
+      <div class="card">
+        <div class="card-header">
+          <span class="badge">PDF</span>
+          <div class="card-title" id="card2-title">
+            ② 미국 출장 Checklist
+          </div>
+        </div>
+        <div class="card-desc" id="card2-desc">
+          미국 출장에 맞는 비자 선택 Matrix 및 비자 유형별 Checklist 를 한 눈에 확인할 수 있는 자료입니다.
+        </div>
+        <div class="btn-row">
+          <a class="btn" id="card2-link"
+             href="pdfjs/viewer.html?file=../US-Biztrip-Checklist-KO.pdf#zoom=page-width">
+            <span id="card2-btn-text">문서 열기</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- PDF #3: Summary (ESTA vs B-1) -->
+      <div class="card">
+        <div class="card-header">
+          <span class="badge">PDF</span>
+          <div class="card-title" id="card3-title">
+            ③ 미국 출장 핵심 Summary (ESTA vs B-1)
+          </div>
+        </div>
+        <div class="card-desc" id="card3-desc">
+          미국 출장 시 ESTA 와 B-1 의 선택, ESTA 와 B-1 비교, 출장자 유의사항 등을 정리한 요약본 입니다.
+          비자 선택과 출장 전 점검은 물론, 출장 중에도 필요할 때 언제든지 빠르고 편리하게 확인하실 수 있습니다.
+        </div>
+        <div class="btn-row">
+          <a class="btn" id="card3-link"
+             href="pdfjs/viewer.html?file=../US-Biztrip-Summary-KO.pdf#zoom=page-width">
+            <span id="card3-btn-text">문서 열기</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer-text">US Biztrip Compliance – PDF Web App</footer>
+  </div>
+
+  <script>
+    // 언어별 텍스트 + PDF 파일 경로 설정
+    const langConfig = {
+      ko: {
+        headerTitle: "US Biztrip Compliance",
+        headerSubtitle: "미국 출장 전 확인해야 할 가이드라인과 체크리스트를 한 곳에서 확인하세요.",
+        footer: "US Biztrip Compliance – PDF Web App",
+        btnText: "문서 열기",
+        cards: [
+          {
+            title: "① 미국 출장 Compliance Guideline",
+            desc: "미국 출장을 위한 비자 종류별 안내, 출국 전 준비 사항, 입국심사 및 체류 중 유의사항, 체포·구금·조사 상황 발생 시 대응 요령 등을 종합적으로 정리한 가이드라인입니다.",
+            href: "pdfjs/viewer.html?file=../US-Biztrip-Guideline-KO.pdf#zoom=page-width"
+          },
+          {
+            title: "② 미국 출장 Checklist",
+            desc: "미국 출장에 맞는 비자 선택 Matrix 및 비자 유형별 Checklist 를 한 눈에 확인할 수 있는 자료입니다.",
+            href: "pdfjs/viewer.html?file=../US-Biztrip-Checklist-KO.pdf#zoom=page-width"
+          },
+          {
+            title: "③ 미국 출장 핵심 Summary (ESTA vs B-1)",
+            desc: "미국 출장 시 ESTA 와 B-1 의 선택, 양자의 비교, 출장자 유의사항 등을 정리한 요약본입니다. 출장 전·중에 필요할 때마다 간편하게 확인할 수 있습니다.",
+            href: "pdfjs/viewer.html?file=../US-Biztrip-Summary-KO.pdf#zoom=page-width"
+          }
+        ]
+      },
+      en: {
+        headerTitle: "US Biztrip Compliance",
+        headerSubtitle: "Access guidelines and checklists you must review before your U.S. business trip – all in one place.",
+        footer: "US Biztrip Compliance – PDF Web App",
+        btnText: "Open document",
+        cards: [
+          {
+            title: "① U.S. Business Trip Compliance Guideline",
+            desc: "A comprehensive guideline covering visa categories for U.S. business trips, pre-departure preparations, inspection points at entry, precautions during your stay, and basic response tips in case of detention, arrest, or investigation.",
+            href: "pdfjs/viewer.html?file=../US-Biztrip-Guideline-EN.pdf#zoom=page-width"
+          },
+          {
+            title: "② U.S. Business Trip Checklist",
+            desc: "A practical checklist including a visa selection matrix and visa-type specific checklists designed for U.S. business trips.",
+            href: "pdfjs/viewer.html?file=../US-Biztrip-Checklist-EN.pdf#zoom=page-width"
+          },
+          {
+            title: "③ U.S. Business Trip Summary (ESTA vs. B-1)",
+            desc: "A concise summary comparing ESTA and B-1, including how to choose the appropriate option and key points to keep in mind before and during your trip.",
+            href: "pdfjs/viewer.html?file=../US-Biztrip-Summary-EN.pdf#zoom=page-width"
+          }
+        ]
+      },
+      zh: {
+        headerTitle: "美国出差合规指引",
+        headerSubtitle: "在一个页面集中查看美国出差前需要了解的指引与检查清单。",
+        footer: "US Biztrip Compliance – PDF Web App",
+        btnText: "打开文档",
+        cards: [
+          {
+            title: "① 美国出差合规指引",
+            desc: "综合整理了美国出差所需的各类签证说明、出发前准备事项、入境检查及停留期间的注意事项，以及在被扣留、拘留或调查等情况发生时的应对要点。",
+            href: "pdfjs/viewer.html?file=../US-Biztrip-Guideline-ZH.pdf#zoom=page-width"
+          },
+          {
+            title: "② 美国出差检查清单",
+            desc: "可一目了然查看适用于美国出差的签证选择矩阵以及不同签证类型对应的检查清单。",
+            href: "pdfjs/viewer.html?file=../US-Biztrip-Checklist-ZH.pdf#zoom=page-width"
+          },
+          {
+            title: "③ 美国出差要点总结（ESTA vs B-1）",
+            desc: "整理了美国出差时 ESTA 与 B-1 的选择标准、两者比较以及出差人员需要注意的事项，便于在出发前和出差期间随时快速查看。",
+            href: "pdfjs/viewer.html?file=../US-Biztrip-Summary-ZH.pdf#zoom=page-width"
+          }
+        ]
+      }
+    };
+
+    function applyLanguage(lang) {
+      const cfg = langConfig[lang];
+      if (!cfg) return;
+
+      // 헤더/푸터
+      document.getElementById("header-title").textContent = cfg.headerTitle;
+      document.getElementById("header-subtitle").textContent = cfg.headerSubtitle;
+      document.getElementById("footer-text").textContent = cfg.footer;
+
+      // 카드 1
+      document.getElementById("card1-title").textContent = cfg.cards[0].title;
+      document.getElementById("card1-desc").textContent  = cfg.cards[0].desc;
+      document.getElementById("card1-link").href        = cfg.cards[0].href;
+      document.getElementById("card1-btn-text").textContent = cfg.btnText;
+
+      // 카드 2
+      document.getElementById("card2-title").textContent = cfg.cards[1].title;
+      document.getElementById("card2-desc").textContent  = cfg.cards[1].desc;
+      document.getElementById("card2-link").href        = cfg.cards[1].href;
+      document.getElementById("card2-btn-text").textContent = cfg.btnText;
+
+      // 카드 3
+      document.getElementById("card3-title").textContent = cfg.cards[2].title;
+      document.getElementById("card3-desc").textContent  = cfg.cards[2].desc;
+      document.getElementById("card3-link").href        = cfg.cards[2].href;
+      document.getElementById("card3-btn-text").textContent = cfg.btnText;
+
+      // 언어 버튼 active 처리
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+
+      // html lang 속성도 같이 바꿔주면 좋음
+      document.documentElement.lang = (lang === "ko" ? "ko" : (lang === "zh" ? "zh" : "en"));
+    }
+
+    // 언어 버튼 클릭 이벤트
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const lang = btn.dataset.lang;
+        applyLanguage(lang);
+      });
+    });
+
+    // 기본 언어 적용 (한국어)
+    applyLanguage("ko");
+
+    // PWA service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').catch(console.error);
+    }
+  </script>
+</body>
+</html>
