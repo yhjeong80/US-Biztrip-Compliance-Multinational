@@ -17,11 +17,11 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#ffffff">
   <meta name="description" content="미국 출장을 위한 비자 안내, 체크리스트 및 컴플라이언스 가이드라인을 PDF로 제공합니다.">
-  <title>US Biztrip Compliance – PDF Viewer</title>
+  <title>U.S. Biztrip Guideline – PDF Viewer</title>
 
   <!-- iOS icons & standalone -->
   <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <meta name="apple-mobile-web-app-title" content="US Biztrip Compliance">
+  <meta name="apple-mobile-web-app-title" content="U.S. Biztrip Guideline">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
   <style>
@@ -169,70 +169,13 @@
       header h1 { font-size: 1.9rem; }
       .card { padding: 20px 22px 18px; }
     }
-
-    /* ===== Notice Modal ===== */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      z-index: 50;
-    }
-
-    .modal {
-      max-width: 520px;
-      width: 100%;
-      background: #ffffff;
-      border-radius: var(--border-radius);
-      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.25);
-      padding: 20px 20px 16px;
-      text-align: left;
-    }
-
-    .modal h2 {
-      margin: 0 0 10px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .modal p {
-      margin: 0 0 8px;
-      font-size: 0.85rem;
-      color: var(--text-sub);
-      line-height: 1.5;
-    }
-
-    .modal-actions {
-      margin-top: 10px;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .modal-btn-primary {
-      padding: 6px 16px;
-      border-radius: 999px;
-      border: none;
-      background: var(--primary);
-      color: #ffffff;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .modal-btn-primary:active {
-      transform: translateY(1px);
-    }
   </style>
 </head>
 
 <body>
   <div class="container">
     <header>
-      <h1 id="header-title">US Biztrip Compliance</h1>
+      <h1 id="header-title">U.S. Biztrip Guideline</h1>
       <p id="header-subtitle">
         미국 출장 전 확인해야 할 가이드라인과 체크리스트를 한 곳에서 확인하세요.
       </p>
@@ -303,43 +246,15 @@
       </div>
     </div>
 
-    <footer id="footer-text">US Biztrip Compliance – PDF Web App</footer>
-  </div>
-
-  <!-- Notice Popup for Global Affiliates (EN 선택 시) -->
-  <div id="notice-modal" class="modal-backdrop" style="display:none;">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="notice-title">
-      <h2 id="notice-title">Notice to Global Affiliates</h2>
-      <p>
-        This Guideline has been developed based on the requirements and procedures applicable to
-        employees of HL Mando Korea who travel from Korea to the United States.
-      </p>
-      <p>
-        Immigration procedures, visa categories, documentary requirements, and applicable regulations
-        may differ depending on the employee’s home country and the jurisdiction of the local
-        U.S. Embassy/Consulate.
-      </p>
-      <p>
-        Therefore, affiliates outside Korea are requested to review this Guideline with reference to
-        local legal requirements, and to consult local HR and Legal teams to confirm any
-        country-specific procedures that may differ from the Korea-based processes described herein.
-      </p>
-      <p>
-        This document should be used as a general reference, and not as a direct substitute for local
-        immigration procedures applicable to each affiliate.
-      </p>
-      <div class="modal-actions">
-        <button id="notice-close-btn" class="modal-btn-primary">OK</button>
-      </div>
-    </div>
+    <footer id="footer-text">U.S. Biztrip Guideline – PDF Web App</footer>
   </div>
 
   <script>
     const langConfig = {
       ko: {
-        headerTitle: "US Biztrip Compliance",
+        headerTitle: "U.S. Biztrip Guideline",
         headerSubtitle: "미국 출장 전 확인해야 할 가이드라인과 체크리스트를 한 곳에서 확인하세요.",
-        footer: "US Biztrip Compliance – PDF Web App",
+        footer: "U.S. Biztrip Guideline – PDF Web App",
         btnText: "문서 열기",
         cards: [
           {
@@ -361,10 +276,10 @@
       },
 
       en: {
-        headerTitle: "US Biztrip Compliance",
+        headerTitle: "U.S. Biztrip Guideline",
         headerSubtitle:
           "Access all the guidelines and checklists you need to review before your U.S. business trip in one place.",
-        footer: "US Biztrip Compliance – PDF Web App",
+        footer: "U.S. Biztrip Guideline – PDF Web App",
         btnText: "View Document",
         cards: [
           {
@@ -419,46 +334,12 @@
       document.documentElement.lang = lang;
     }
 
-    function openNoticeModal() {
-      const modal = document.getElementById("notice-modal");
-      if (modal) {
-        modal.style.display = "flex";
-      }
-    }
-
-    function closeNoticeModal() {
-      const modal = document.getElementById("notice-modal");
-      if (modal) {
-        modal.style.display = "none";
-      }
-    }
-
     // 언어 버튼
     document.querySelectorAll(".lang-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const lang = btn.dataset.lang;
-
-        if (lang === "en") {
-          // 영어로 전환 + 매번 Notice 팝업
-          applyLanguage("en");
-          openNoticeModal();
-        } else {
-          // 한국어 선택 시 팝업 없이 언어만 변경
-          applyLanguage(lang);
-        }
+        applyLanguage(lang); // 팝업 없이 언어만 변경
       });
-    });
-
-    // 팝업 닫기 버튼
-    document.getElementById("notice-close-btn")?.addEventListener("click", () => {
-      closeNoticeModal();
-    });
-
-    // 배경 클릭 시 닫기
-    document.getElementById("notice-modal")?.addEventListener("click", (e) => {
-      if (e.target.id === "notice-modal") {
-        closeNoticeModal();
-      }
     });
 
     // 기본 한국어
